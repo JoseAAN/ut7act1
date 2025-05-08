@@ -25,10 +25,10 @@ public class MascotaController {
         this.mascotaService = mascotaService;
     }
 
-    @GetMapping("/api/v1/mascotas")
+    @GetMapping
     public List<Mascota> listarMascotas() {return mascotaService.listarMascotas();}
 
-    @GetMapping("/api/v1/mascotas/{id}")
+    @GetMapping("/{id}")
     public Mascota buscarMascota(@PathVariable Long id){return mascotaService.buscarMascota(id);}
 
     @PostMapping
@@ -36,12 +36,12 @@ public class MascotaController {
         return mascotaService.registrarMascota(mascota);
     }
 
-    @DeleteMapping("/api/v1/mascotas/{id}")
+    @DeleteMapping("/{id}")
     public void borrarMascota(@PathVariable Long id){
         mascotaService.borrarMascota(id);
     }
 
-    @PutMapping("/api/v1/mascotas/{id}")
+    @PutMapping("/{id}")
     public Mascota actualizarMascota(@RequestBody Mascota mascota, @PathVariable Long id){mascota.setId(id); return mascotaService.actualizarMascota(mascota, id);}
 
 }
